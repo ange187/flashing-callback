@@ -19,3 +19,5 @@ onclick="return false;"
 
 ## Style css
 Первые 7 строк отвечают за внешний вид кнопки, далее уже анимация. В первой строке можно настроить расположение кнопки, а в шестой строке указываете путь к изображению в параметре background-image:url(mini.png).
+
+Автор: http://gnatkovsky.com.ua/animirovannaya-knopka-obratnogo-zvonka.html

@@ -1,3 +1,6 @@
 {
-    "name":"ange187/flashing-callback"
+    "name":"ange187/flashing-callback",
+    	"require": {
+    		"infrajs/contacts":"~1"
+    	}
 }

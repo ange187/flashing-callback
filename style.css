@@ -20,7 +20,10 @@
 	box-sizing:content-box;-webkit-box-sizing:content-box;width:72px;height:72px;background-image:url(/-flashing-callback/mini.png);background-position: center center;background-repeat:no-repeat;animation-name: tossing;-webkit-animation-name: tossing;animation-duration: 1.5s;-webkit-animation-duration: 1.5s;animation-iteration-count: infinite;-webkit-animation-iteration-count: infinite;
 }
 #flashing-callback .img-circle:hover{opacity: 1;}
-
+.modal-open #flashing-callback {
+  
+  margin-right: 17px;
+}
 @keyframes pulse {0% {transform: scale(0.9);opacity: 1;}
   50% {transform: scale(1); opacity: 1; }   
   100% {transform: scale(0.9);opacity: 1;}}

@@ -20,7 +20,7 @@ if (time() - $_SESSION['submit_time'] < 60) return Ans::err($ans, 'Письмо 
 $_SESSION['submit_time'] = time();
 
 $subject = 'Заказ обратного звонка';
-$body = 'Перезвоните по телефону\n'.$phone;
+$body = "Перезвоните по телефону\n".$phone;
 $from = "noreplay@".$_SERVER["HTTP_HOST"];
 $r = Mail::toAdmin($subject, $from, $body);
 if (!$r) return Ans::err($ans,'Ошибка, письмо менеджеру не отправлено');

@@ -3,13 +3,7 @@
 ## Добавить ссылку 
 Этот код ссылки, нужно добавить в footer
 ```
-<a href="#" id="popup__toggle" onclick="return false;">
-  <div class="circlephone" style="transform-origin: center;"></div>
-  <div class="circle-fill" style="transform-origin: center;"></div>
-  <div class="img-circle" style="transform-origin: center;">
-    <div class="img-circleblock" style="transform-origin: center;"></div>
-  </div>
- </a>
+<a data-crumb="false" data-ascroll="false" href="/" id="flashing-callback" onclick="return false;"></a>
 ```
 Кнопка рассчитана на подключение модального окна из другой статьи. Если подключаете сторонние ссылки, то у самой кнопки в ее HTML коде есть событие
 ```

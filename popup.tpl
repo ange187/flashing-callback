@@ -22,8 +22,16 @@
 	<form method="post" action="/-flashing-callback/phone.php">
 		<p><input name="phone" type="tel" class="form-control" placeholder="+7 (999) 999 99 99"></p>
 		<p style="font-size: 80%;">Нажимая кнопку «Жду звонка», Вы соглашаетесь на обработку <a href="/terms">персональных данных</a> в соответствии с ФЗ №152 "О персональных данных".</p>
+		<div id="recaptchaflash" class="g-recaptcha mb-3"  data-sitekey="{~conf.recaptcha.sitekey}"></div>
 		<button style="margin-bottom:15px" type="submit" class="btn btn-primary btn-lg">Жду звонка</button>
 	</form>
+	<script>
+		domready(function () {
+			Event.one('reCAPTCHA', function (){
+				grecaptcha.render('recaptchaflash');
+			});
+		});
+	</script>
 	{config.ans:ans.msg}
 </div>
 {ans::}-ans/ans.tpl

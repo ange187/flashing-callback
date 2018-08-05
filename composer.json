@@ -3,6 +3,7 @@
 	"require": {
 		"infrajs/contacts":"~1",
 		"infrajs/rest":"~1",
-		"infrajs/ans":"~1"
+		"infrajs/ans":"~1",
+		"akiyatkin/recaptcha":"~1"
 	}
 }

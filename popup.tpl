@@ -37,6 +37,7 @@
 {terms:}
 	<p style="font-size: 80%;">Нажимая кнопку «Жду звонка», Вы соглашаетесь на обработку <a href="/terms">персональных данных</a> в соответствии с ФЗ №152 "О персональных данных".</p>
 {logo:}
-	<div class="logoblock">
+	<div class="logoblock d-flex justify-content-between">
 		<img height="50px" src="/-flashing-callback/logo.png">
+		<div style="font-size:32px; cursor: pointer" onclick="Popup.close()"><i class="fas fa-times"></i></div>
 	</div>

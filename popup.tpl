@@ -27,7 +27,9 @@
 	<script>
 		domready(function () {
 			Event.one('reCAPTCHA', function (){
-				grecaptcha.render('recaptchaflash');
+				var el = document.getElementById('recaptchaflash');
+				if (!el) return;
+				grecaptcha.render(el);
 			});
 		});
 	</script>

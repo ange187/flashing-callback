@@ -26,7 +26,8 @@ $_SESSION['submit_time'] = time();
 $subject = 'Заказ обратного звонка';
 $body = "Перезвоните по телефону\n".$phone;
 $from = "noreplay@".$_SERVER["HTTP_HOST"];
-$r = Mail::toAdmin($subject, $from, $body);
+			//($subject, $body, $replay_to, $email_to, $debug = false) { //from to
+$r = Mail::html($subject, $body);
 if (!$r) return Ans::err($ans,'Ошибка, письмо менеджеру не отправлено');
 
 return Ans::ret($ans, 'Менеджер оповещён');

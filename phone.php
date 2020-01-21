@@ -1,6 +1,7 @@
 <?php
 use infrajs\ans\Ans;
 use infrajs\mail\Mail;
+use infrajs\config\Config;
 use akiyatkin\recaptcha\Recaptcha;
 
 if (isset($_POST["phone"])) {
@@ -11,6 +12,10 @@ if (isset($_POST["phone"])) {
 
 $ans = array();
 
+$contconf = Config::get('contacts');
+if (!empty($contconf['terms'])) {
+	if (empty($_REQUEST['terms'])) return Ans::err($ans, 'Вам нужно принять политику конфиденциальности!');
+}
 $ans['phone'] = $phone;
 if (strlen($phone) < 6 ) return Ans::err($ans,'Уточните ваш телефон');
 

@@ -1,3 +1,4 @@
+{cont::}-contacts/contacts.tpl
 {root:}
 <div class="popupblock">
 	<style scoped>
@@ -20,7 +21,8 @@
 	<p>Оставьте свой номер и мы перезвоним в рабочее время.</p>
 	<form method="post" action="/-flashing-callback/phone.php">
 		<p><input name="phone" type="tel" class="form-control" placeholder="+7 (999) 999 99 99"></p>
-				{:terms}
+
+			{~conf.contacts.terms?:cont.terms}
 		<div id="recaptchaflash" class="g-recaptcha mb-3"  data-sitekey="{~conf.recaptcha.sitekey}"></div>
 		<button style="margin-bottom:15px" type="submit" class="btn {config.btncls?config.btncls?:btncls} btn-lg">Жду звонка</button>
 	</form>

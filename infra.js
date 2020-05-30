@@ -1,8 +1,12 @@
-domready(function(){
-	var t = Load.loadTEXT("-flashing-callback/layout.tpl"); //cache
-	$(".flashing-html").html(t);
+import { Load } from '/vendor/akiyatkin/load/Load.js'
+import { CDN } from '/vendor/akiyatkin/load/CDN.js'
 
-	$("#flashing-callback").html(t).click(function(){
+Load.fire('text','-flashing-callback/layout.tpl').then(async t => {
+	await CDN.fire('load','jquery')
+	
+	$(".flashing-html").html(t)
+
+	$("#flashing-callback").html(t).click( function (){
 		Popup.show({
 			onsubmit:true,
 			autosavename:"user",
@@ -22,5 +26,6 @@ domready(function(){
 			tpl:'-flashing-callback/popup.tpl'
 		});
 	}).addClass('flashing-html');
-});
+})
+	
 

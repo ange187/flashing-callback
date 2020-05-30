@@ -19,22 +19,17 @@
 	{:logo}
 	<h1>Заказать звонок</h1>
 	<p>Оставьте свой номер и мы перезвоним в рабочее время.</p>
-	<form method="post" action="/-flashing-callback/phone.php">
+	<form method="post" action="/-flashing-callback/phone.php" 
+		data-layerid="{id}"
+		data-autosave="{autosavename}"
+		data-goal="{goal}"
+		data-global="{global}"
+		data-recaptcha="callback"
+		class="form">
 		<p><input name="phone" type="tel" class="form-control" placeholder="+7 (999) 999 99 99"></p>
-
 			{~conf.contacts.terms?:cont.terms}
-		<div id="recaptchaflash" class="g-recaptcha mb-3"  data-sitekey="{~conf.recaptcha.sitekey}"></div>
 		<button style="margin-bottom:15px" type="submit" class="btn {config.btncls?config.btncls?:btncls} btn-lg">Жду звонка</button>
 	</form>
-	<script>
-		domready(function () {
-			Event.one('reCAPTCHA', function (){
-				var el = document.getElementById('recaptchaflash');
-				if (!el) return;
-				grecaptcha.render(el);
-			});
-		});
-	</script>
 	{config.ans:ans.msg}
 </div>
 {btncls:}btn-primary

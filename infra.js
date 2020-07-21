@@ -1,34 +1,43 @@
 import { Load } from '/vendor/akiyatkin/load/Load.js'
-import { CDN } from '/vendor/akiyatkin/load/CDN.js'
-let Popup
+import { Config } from '/vendor/infrajs/config/Config.js'
+import { CallFrame } from '/vendor/akiyatkin/waitshow/CallFrame.js'
+import { inViewport } from '/vendor/akiyatkin/load/inViewport.js'
 
-Load.fire('text','-flashing-callback/layout.tpl').then(async t => {
-	await CDN.fire('load','jquery')
-	
-	$(".flashing-html").html(t)
+inViewport(document.body, () => {
+	let cls = cls => document.getElementsByClassName(cls)[0]
+	let init = async () => {
+		let btn = cls('flashing-html')
+		let html = await Load.fire('text', '-flashing-callback/layout.tpl')
+		btn.innerHTML = html
+	}
+	let conf = Config.get('flashing-callback')
 
-	$("#flashing-callback").html(t).click(async () => {
-		Popup = (await import('/vendor/infrajs/popup/Popup.js')).Popup 
-		Popup.show({
-			onsubmit:true,
-			autosavename:"user",
-			goal:"contacts",
-			data:true,
-			tpl:'-flashing-callback/popup.tpl'
-		});
-	}).addClass('flashing-html');
-	
-	
-	$(".flashing-callback").html(t).click(async () => {
-		Popup = (await import('/vendor/infrajs/popup/Popup.js')).Popup 
-		Popup.show({
-			onsubmit:true,
-			autosavename:"user",
-			goal:"contacts",
-			data:true,
-			tpl:'-flashing-callback/popup.tpl'
-		});
-	}).addClass('flashing-html');
+	if (!conf.trigger) {
+		init()
+	} else {
+		let status = false
+		let btn = cls('flashing-html')
+		let check = () => {
+			let el = document.getElementById(conf.trigger)
+			if (!el) return
+			let r = el.getBoundingClientRect()
+			if (r.top > 0) {
+				btn.style.opacity = 0
+			} else {
+				btn.style.opacity = 1
+				if (!status) {
+					status = true
+					init()
+				}
+			}
+		}
+		let handler = () => CallFrame(check, 200)
+		window.addEventListener('scroll', handler)
+	}
 })
-	
+
+
+
+
+
 

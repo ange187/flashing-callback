@@ -1,4 +1,6 @@
 {
+	"pub":["trigger"],
+	"trigger":false,
 	"css":"style.css",
 	"js":"infra.js"	
 }

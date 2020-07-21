@@ -4,6 +4,7 @@
 		"infrajs/contacts":"~1",
 		"infrajs/rest":"~1",
 		"infrajs/ans":"~1",
-		"akiyatkin/load":"~1"
+		"akiyatkin/load":"~1",
+		"akiyatkin/waitshow":"~1"
 	}
 }
